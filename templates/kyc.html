@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+   {% load bootstrap5 %}
+    {% bootstrap_css %}
+    {% bootstrap_javascript %}
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Complete kyc </title>
+
+    <!-- Font Icon -->
+    <link rel="stylesheet" href="/static/signup/fonts/material-icon/css/material-design-iconic-font.min.css">
+
+    <!-- Main css -->
+    <link rel="stylesheet" href="/static/signup/css/style.css">
+</head>
+<body>
+
+    <div class="main">
+
+        <!-- Sign up form -->
+        <section class="signup">
+            <div class="container">
+                <div class="signup-content">
+                    <div class="signup-form">
+                        <h2 class="form-title">Complete KYC</h2>
+                        <form method="POST" class="register-form" id="register-form" enctype="multipart/form-data">
+                          {% csrf_token %}
+                            <div class="form-group">
+                                <label for="doumenttype"><i class="zmdi zmdi-account material-icons-name"></i></label>
+                                <input type="text"  id="documenttype" placeholder="documenttype" name = "documenttype" / >
+                            </div>
+                             <div class="form-group">
+                                <label for="documentnumber"><i class="zmdi zmdi-account material-icons-name"></i></label>
+                                <input type="text"  id="documentnumber" placeholder="documentnumber " name = "documentnumber" / >
+                            </div>
+                            <div class="form-group">
+                                <label for="dateofbirth"><i class="zmdi zmdi-email"></i></label>
+                                <input type="date"  id="dateofbirth" placeholder="dateofbirth" name = "dateofbirth" />
+                            </div>
+                             <div class="form-group">
+                                <label for="address"><i class="zmdi zmdi-num"></i></label>
+                                <input type="text"  id="address" placeholder="address" name = "address" />
+                            </div>
+                              <input type="file" id="documentimage" name="documentimage"><br>   
+                          
+                           
+                            <div class="form-group form-button">
+                                <input type="submit" name="signup" id="signup" class="form-submit" value="submit" />
+                            </div>
+                        </form>
+                    </div>
+                    <div class="signup-image">
+                        <figure><img src="/static/signup/images/signup-image.jpg" alt="sing up image"></figure>
+                        <a href="/signin/" class="signup-image-link">I am already member</a>
+                    </div>
+                </div>  
+            </div>
+        </section>
+
+       
+    </div>
+
+    <!-- JS -->
+    <script src="/static/signup/vendor/jquery/jquery.min.js"></script>
+    <script src="/static/signup/js/main.js"></script>
+</body><!-- This templates was made by Colorlib (https://colorlib.com) -->
+</html>
+
+
+
+
+
+
+
+
+

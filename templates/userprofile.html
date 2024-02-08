@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    {% load bootstrap5 %}
+    {% bootstrap_css %}
+    {% bootstrap_javascript %}
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>User Profile</title>
+
+    <!-- Font Icon -->
+    <link rel="stylesheet" href="https://cdn.materialdesignicons.com/5.4.55/css/materialdesignicons.min.css">
+
+    <!-- Main css -->
+    <link rel="stylesheet" href="/static/signup/css/style.css">
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f8f9fa;
+            margin: 0;
+            padding: 0;
+        }
+
+        .main {
+            background-color: #ffffff;
+            margin: 20px auto;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            max-width: 1000px;
+            /* Adjusted max-width */
+        }
+
+        .signup-form {
+            background-color: #ffffff;
+            border: 1px solid #dee2e6;
+            border-radius: 5px;
+            padding: 20px;
+        }
+
+        .form-title {
+            color: #007bff;
+            text-align: center;
+            margin-bottom: 100px;
+            max-width: 1000px;
+            /* Adjusted max-width */
+        }
+
+        .wallet-details {
+            margin-bottom: 30px;
+        }
+
+        .wallet-details h2 {
+            color: #007bff;
+        }
+
+        .wallet-balance {
+            font-size: 18px;
+            color: #333;
+            margin-bottom: 10px;
+        }
+
+        .coin-details {
+            margin-top: 20px;
+        }
+
+        table {
+            width: 100%;
+            table-layout: fixed;
+            border-collapse: collapse;
+            margin-top: 20px;
+            overflow-x: auto;
+        }
+
+        th,
+        td {
+            border: 1px solid #dee2e6;
+            padding: 8px;
+            text-align: left;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        th {
+            background-color: #007bff;
+            color: #ffffff;
+            min-width: 200px;
+            /* Adjusted min-width */
+        }
+
+        .sell-button {
+            background-color: #28a745;
+            color: #ffffff;
+            padding: 8px 16px;
+            text-decoration: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .back-button {
+            background-color: #007bff;
+            color: #ffffff;
+            padding: 10px 20px;
+            text-decoration: none;
+            border-radius: 5px;
+            display: inline-block;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="main">
+        <!-- User Profile section -->
+        <section class="signup">
+            <div class="container ">
+                <div class="signup-content">
+                    <div class="signup-form" style="width: 1000px;">
+                        <h2 class="form-title">User Profile</h2>
+
+                        <!-- Display user wallet details -->
+                        <div class="wallet-details">
+                            <h2>{{ user.kyc }}</h2>
+                            <p class="wallet-balance">Wallet Balance: ${{ user.wallet.balance }}</p>
+                            <!-- You can include other wallet details as needed -->
+                        </div>
+
+                        <!-- Display coins user has bought in a table -->
+                        <div class="coin-details">
+                            <h3>Coins Bought</h3>
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th>Coin Name</th>
+                                        <th>Symbol</th>
+                                        <th>Buy Price</th>
+                                        <th>Quantity</th> <!-- New column for Quantity -->
+                                        <th>Current Price</th>
+                                        <th>Total Cost</th> <!-- New column for Total Cost -->
+                                        <th>Profit/Loss (%)</th>
+                                        <th>Action</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    {% for transaction in user_transactions %}
+                                    <tr>
+                                        <td>{{ transaction.coin.name }}</td>
+                                        <td>{{ transaction.coin.symbol }}</td>
+                                        <td>${{ transaction.buy_price | floatformat:2 }}</td>
+                                        <td>{{ transaction.amount }}</td> <!-- Display Quantity -->
+                                        <td>${{ transaction.coin.current_price }}</td>
+                                        <td>${{ transaction.total_cost | floatformat:2 }}</td>
+                                        <!-- Display Total Cost -->
+                                        <td>{{ transaction.coin.profit_loss_percent | floatformat:2 }}%</td>
+                                        <td><button class="sell-button"
+                                                onclick="sellCoin('{{ transaction.coin.symbol }}')">Sell</button></td>
+                                    </tr>
+                                    {% endfor %}
+                                </tbody>
+                            </table>
+                        </div>
+
+                        <a href="/profile/" class="back-button">Back to Dashboard</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Additional script for selling coins -->
+    <!-- Additional script for selling coins -->
+    <script>
+        function sellCoin(coinSymbol) {
+            // Prompt the user for the quantity
+            var quantity = prompt(`Enter the quantity of ${coinSymbol} to sell:`);
+
+            // Check if the quantity is provided and is a valid number
+            if (quantity !== null && !isNaN(quantity) && parseFloat(quantity) > 0) {
+                // Create a form dynamically
+                var form = document.createElement("form");
+                form.method = "POST";
+                form.action = "{% url 'sell_coin' %}";
+
+                // Add coin_symbol, quantity, and csrfmiddlewaretoken to the form
+                var coinSymbolInput = document.createElement("input");
+                coinSymbolInput.type = "hidden";
+                coinSymbolInput.name = "coin_symbol";
+                coinSymbolInput.value = coinSymbol;
+                form.appendChild(coinSymbolInput);
+
+                var quantityInput = document.createElement("input");
+                quantityInput.type = "hidden";
+                quantityInput.name = "quantity";
+                quantityInput.value = quantity;
+                form.appendChild(quantityInput);
+
+                var csrfTokenInput = document.createElement("input");
+                csrfTokenInput.type = "hidden";
+                csrfTokenInput.name = "csrfmiddlewaretoken";
+                csrfTokenInput.value = '{{ csrf_token }}';
+                form.appendChild(csrfTokenInput);
+
+                // Append the form to the document
+                document.body.appendChild(form);
+
+                // Submit the form
+                form.submit();
+
+                // Remove the form from the document
+                document.body.removeChild(form);
+            } else {
+                // Handle invalid quantity (optional: show an alert or do nothing)
+                alert("Invalid quantity. Please enter a valid number greater than 0.");
+            }
+        }
+    </script>
+
+
+    <!-- JS -->
+    <script src="/signup/vendor/jquery/jquery.min.js"></script>
+    <script src="/signup/js/main.js"></script>
+</body>
+
+</html>

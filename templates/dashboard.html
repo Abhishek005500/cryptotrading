@@ -1,0 +1,790 @@
+<!--
+=========================================================
+* Material Dashboard 2 - v3.1.0
+=========================================================
+
+* Product Page: https://www.creative-tim.com/product/material-dashboard
+* Copyright 2023 Creative Tim (https://www.creative-tim.com)
+* Licensed under MIT (https://www.creative-tim.com/license)
+* Coded by Creative Tim
+
+=========================================================
+
+* The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    {% load bootstrap5 %}
+    {% bootstrap_css %}
+    {% bootstrap_javascript %}
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="apple-touch-icon" sizes="76x76" href="../assets/img/apple-icon.png">
+    <link rel="icon" type="image/png" href="../static/img/favicon.png">
+    <title>
+        Crypto Trading
+    </title>
+    <!--     Fonts and icons     -->
+    <link rel="stylesheet" type="text/css"
+        href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,900|Roboto+Slab:400,700" />
+    <!-- Nucleo Icons -->
+    <link href="../static/css/nucleo-icons.css" rel="stylesheet" />
+    <link href="../static/css/nucleo-svg.css" rel="stylesheet" />
+    <!-- Font Awesome Icons -->
+    <script src="https://kit.fontawesome.com/42d5adcbca.js" crossorigin="anonymous"></script>
+    <!-- Material Icons -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Round" rel="stylesheet">
+    <!-- CSS Files -->
+    <link id="pagestyle" href="../static/css/material-dashboard.css?v=3.1.0" rel="stylesheet" />
+    <!-- Nepcha Analytics (nepcha.com) -->
+
+</head>
+
+<body class="g-sidenav-show  bg-gray-200">
+
+
+
+    <aside
+        class="sidenav navbar navbar-vertical navbar-expand-xs border-0 border-radius-xl my-3 fixed-start ms-3   bg-gradient-dark"
+        id="sidenav-main">
+        <div class="sidenav-header">
+            <i class="fas fa-times p-3 cursor-pointer text-white opacity-5 position-absolute end-0 top-0 d-none d-xl-none"
+                aria-hidden="true" id="iconSidenav"></i>
+            <a class="navbar-brand m-0" href=" https://demos.creative-tim.com/material-dashboard/pages/dashboard "
+                target="_blank">
+                <img src="../static/img/logo-ct.png" class="navbar-brand-img h-100" alt="main_logo">
+                <span class="ms-1 font-weight-bold text-white">Crypto Trading</span>
+            </a>
+        </div>
+        <hr class="horizontal light mt-0 mb-2">
+        <div class="collapse navbar-collapse  w-auto " id="sidenav-collapse-main">
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link text-white active bg-gradient-primary" href="/">
+                        <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
+                            <i class="material-icons opacity-10">dashboard</i>
+                        </div>
+                        <span class="nav-link-text ms-1">Dashboard</span>
+                    </a>
+                </li>
+
+
+
+
+                <li class="nav-item mt-3">
+                    <h6 class="ps-4 ms-2 text-uppercase text-xs text-white font-weight-bolder opacity-8">Account pages
+                    </h6>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link text-white " href="/signin/">
+                        <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
+                            <i class="material-icons opacity-10">login</i>
+                        </div>
+                        <span class="nav-link-text ms-1">Sign In</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-white " href="/signup/">
+                        <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
+                            <i class="material-icons opacity-10">assignment</i>
+                        </div>
+                        <span class="nav-link-text ms-1">Sign Up</span>
+                    </a>
+                </li>
+
+
+            </ul>
+        </div>
+
+    </aside>
+    <main class="main-content position-relative max-height-vh-100 h-100 border-radius-lg ">
+        <!-- Navbar -->
+        <nav class="navbar navbar-main navbar-expand-lg px-0 mx-4 shadow-none border-radius-xl" id="navbarBlur"
+            data-scroll="true">
+
+        </nav>
+        <!-- End Navbar -->
+        <div class="container-fluid py-4">
+            <div class="row mt-4">
+                <div class="col-lg-8 col-md-12 mt-4 mb-4 p-2 shadow bg-white">
+
+                    <!-- TradingView Widget BEGIN -->
+                    <div class="tradingview-widget-container" style="height: 100vh; width: 100%;">
+                        <div class="tradingview-widget-container__widget"
+                            style="height: calc(100% - 32px); width: 100%;"></div>
+                        <div class="tradingview-widget-copyright">
+                            <a href="https://www.tradingview.com/" rel="noopener nofollow" target="_blank">
+                                <span class="blue-text">Track all markets on TradingView</span>
+                            </a>
+                        </div>
+                        <script type="text/javascript"
+                            src="https://s3.tradingview.com/external-embedding/embed-widget-advanced-chart.js" async>
+                                {
+                                    "autosize": false,
+                                        "symbol": "BINANCE:BTCUSDT",
+                                            "interval": "30",
+                                                "timezone": "Etc/UTC",
+                                                    "theme": "dark",
+                                                        "style": "1",
+                                                            "locale": "en",
+                                                                "width": "100%",
+                                                                    "height": "100%",
+                                                                        "enable_publishing": false,
+                                                                            "allow_symbol_change": true,
+                                                                                "support_host": "https://www.tradingview.com"
+                                }
+                            </script>
+                    </div>
+                    <!-- TradingView Widget END -->
+
+                </div>
+
+                <div class="col-lg-4 h-100 border col-md-12 mt-4 mb-4 ">
+                    <div class="card z-index-2 ">
+
+
+                        <div id="calculatorContainer" style="height: 30vh;width: 100%;">
+                            <!-- Coin details will be displayed here -->
+                            <div
+                                style="background-color: #f5f5f5; padding: 15px; border-radius: 8px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);">
+                                <h3 style="color: #0d166c;">Calculator</h3>
+                                <div style="margin-bottom: 10px;">
+                                    <strong style="color: #41169e;">Coin Name:</strong>
+                                </div>
+                                <div style="margin-bottom: 10px;">
+                                    <strong style="color: #1e1873;">Coin Price:</strong>
+                                </div>
+                                <label for="quantity" style="display: block; margin-bottom: 5px; color: #333;"
+                                    class="calculator-input">Enter
+                                    Quantity:</label>
+                                <input type="number" id="quantity" class="calculator-input"
+                                    oninput="calculateFinalPrice(${coinPrice})"
+                                    style="width: 100%; padding: 8px; box-sizing: border-box; border: 1px solid #ccc; border-radius: 4px; margin-bottom: 10px;">
+                                <p id="finalPriceResult" style="font-size: 16px; color: #333;"></p>
+                            </div>
+                        </div>
+                    </div>
+
+
+                </div>
+            </div>
+        </div>
+        <div class="row mb-4">
+            <div class="col-lg-8 col-md-6 mb-md-0 mb-4">
+                <div class="card">
+                    <div class="card-header pb-0">
+                        <div class="row">
+
+                        </div>
+                    </div>
+
+
+
+
+                    <style>
+                        .container {
+                            display: flex;
+                            flex-direction: column;
+                            align-items: flex-start;
+                        }
+
+                        .table-container {
+                            max-height: 400px;
+                            overflow-y: auto;
+                            width: 100%;
+                        }
+
+                        #calculatorContainer {
+                            width: 300px;
+                            margin-top: 20px;
+                            padding: 10px;
+                            border: 1px solid #cd8a8a;
+                            border-radius: 4px;
+
+                        }
+
+                        #searchInput {
+                            width: 200px;
+                            padding: 8px;
+                            margin-bottom: 10px;
+                            border: 1px solid #ccc;
+                            border-radius: 4px;
+                            box-sizing: border-box;
+                        }
+
+                        #searchButton {
+                            padding: 8px 12px;
+                            background-color: #4CAF50;
+                            color: white;
+                            border: none;
+                            border-radius: 4px;
+                            cursor: pointer;
+                            margin-bottom: 10px;
+                        }
+
+                        #searchButton:hover {
+                            background-color: #45a049;
+                        }
+
+                        .coin-list {
+                            display: none;
+                            cursor: pointer;
+                            width: 200px;
+                        }
+
+                        #calculatorContainer {
+                            margin-top: 20px;
+                            padding: 10px;
+                            border: 1px solid #ccc;
+                            border-radius: 4px;
+                        }
+
+                        .calculator-input {
+                            margin-bottom: 10px;
+                        }
+                    </style>
+
+                    <script>
+                        function toggleCoinList() {
+                            var coinList = document.querySelector('.coin-list');
+                            coinList.style.display = (coinList.style.display === 'none' || coinList.style.display === '') ? 'block' : 'none';
+                        }
+
+                        function showCoinDetails(coinName, coinPrice) {
+                            var calculatorContainer = document.getElementById('calculatorContainer');
+                            calculatorContainer.innerHTML = `
+                                        <div style="background-color: #f5f5f5; padding: 15px; border-radius: 8px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);">
+                                            <h3 style="color: #333;">Calculator</h3>
+                                            <div style="margin-bottom: 10px;">
+                                                <strong style="color: #333;">Coin Name:</strong> ${coinName}
+                                            </div>
+                                            <div style="margin-bottom: 10px;">
+                                                <strong style="color: #333;">Coin Price:</strong> ${coinPrice}
+                                            </div>
+                                            <label for="quantity" style="display: block; margin-bottom: 5px; color: #333;" class="calculator-input">Enter Quantity:</label>
+                                            <input type="number" id="quantity" class="calculator-input" oninput="calculateFinalPrice(${coinPrice})"
+                                                style="width: 100%; padding: 8px; box-sizing: border-box; border: 1px solid #ccc; border-radius: 4px; margin-bottom: 10px;">
+                                            <p id="finalPriceResult" style="font-size: 16px; color: #333;"></p>
+                                        </div>
+                                    `;
+                        }
+
+                        function calculateFinalPrice(coinPrice) {
+                            var quantity = parseFloat(document.getElementById('quantity').value);
+                            var finalPriceResult = document.getElementById('finalPriceResult');
+
+                            if (!isNaN(quantity)) {
+                                var finalPrice = coinPrice * quantity;
+                                finalPriceResult.innerHTML = `Final Price: ${finalPrice.toFixed(2)}`;
+                            } else {
+                                finalPriceResult.innerHTML = 'Invalid quantity';
+                            }
+                        }
+                    </script>
+
+
+
+                    <section>
+                        <div class="container py-5">
+                            <form method="get" action="{% url 'dashboard' %}">
+                                <input type="text" name="searchInput" list="coinList" id="searchInput"
+                                    placeholder="Search for a coin..." value="{{ request.GET.searchInput }}">
+                                <button type="submit" id="searchButton">Search</button>
+                            </form>
+
+                            <div class="table-container">
+                                <div class="table-responsive text-white">
+                                    <table class="table table-striped text-center table-hover table-bordered">
+                                        <thead>
+                                            <tr>
+                                                <th scope="col">Name</th>
+                                                <th scope="col">Symbol</th>
+                                                <th scope="col">Image</th>
+                                                <th scope="col">Current Price</th>
+                                                <th scope="col">% Change 24hr</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            {% if apidata %}
+                                            {% for coin in apidata %}
+                                            <tr class="coin-row">
+                                                <td
+                                                    onclick="showCoinDetails('{{ coin.name }}', {{ coin.quote.USD.price }})">
+                                                    {{ coin.name }}</td>
+                                                <td>{{ coin.symbol }}</td>
+                                                <td>
+                                                    <img src="https://coinicons-api.vercel.app/api/icon/{{ coin.symbol.lower }}"
+                                                        alt="Icon" style="height: 40px; width: 40px;">
+                                                </td>
+                                                <td style="color: rgb(68, 47, 255);">{{ coin.quote.USD.price |
+                                                    floatformat:2}}</td>
+                                                <td
+                                                    style="color: {% if coin.quote.USD.percent_change_24h >= 0 %}green{% else %}red{% endif %};">
+                                                    {{ coin.quote.USD.percent_change_24h | floatformat:2}}%
+                                                </td>
+                                            </tr>
+                                            {% endfor %}
+                                            {% else %}
+                                            <tr>
+                                                <td colspan="5">No matching coins found</td>
+                                            </tr>
+                                            {% endif %}
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+
+                            {% if apidata %}
+                            <div class="coin-list" onclick="toggleCoinList()">
+                                <h3>Coin List</h3>
+                                <ul>
+                                    {% for coin in apidata %}
+                                    <li onclick="showCoinDetails('{{ coin.name }}', {{ coin.quote.USD.price }})">
+                                        {{ coin.name }}
+                                    </li>
+                                    {% endfor %}
+                                </ul>
+                            </div>
+                            {% endif %}
+
+
+                    </section>
+
+                </div>
+            </div>
+            <div class="col-4">
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Quibusdam sit veritatis eum numquam
+                    blanditiis,
+                    quos, nemo maiores et illo quaerat rem itaque earum nostrum doloremque qui rerum nulla vero
+                    recusandae
+                    quasi cum, veniam amet cupiditate assumenda eaque. Dolores voluptatem eum nisi incidunt doloribus
+                    esse
+                    amet error pariatur adipisci omnis, dolorem exercitationem consectetur est veritatis asperiores illo
+                    a
+                    hic ea! Temporibus magnam a sequi. Aliquam rem repellat pariatur quae quos harum omnis perferendis
+                    odio
+                    dolores! Tempora quisquam dolorum provident velit, saepe doloremque vitae soluta delectus temporibus
+                    tempore, odio officia maxime molestiae! Corporis consequatur maxime, ipsam fugit, nemo libero iure
+                    autem
+                    a in minus obcaecati perferendis accusantium natus molestias beatae sint facere? Repudiandae iusto
+                    dolore voluptates maiores quisquam praesentium ex, aspernatur consectetur, quas eligendi impedit
+                    laudantium, minima at inventore! Nobis quia temporibus laborum ducimus provident at nemo fugit, eum
+                    inventore excepturi saepe dicta veniam voluptatibus dolores maxime, placeat omnis rerum eligendi
+                    distinctio deserunt delectus sunt odio. Velit asperiores error perspiciatis culpa veniam natus
+                    eveniet
+                    pariatur et odio odit perferendis rem, ab voluptates recusandae aut minus sequi modi quidem nobis
+                    magnam
+                    repellat! Ex, adipisci cum! Veritatis saepe doloribus ab voluptatibus, quaerat dicta repellendus
+                    repellat distinctio vitae? Pariatur numquam dolores dolor deserunt est, eius ducimus optio corrupti
+                    aut
+                    debitis similique exercitationem unde fugit eos labore quae dolore esse? Corporis aperiam mollitia
+                    nam
+                    ea ab quod reiciendis eligendi atque vel quo nemo, reprehenderit asperiores voluptatibus nisi sed
+                    cumque
+                    modi nihil voluptatum itaque pariatur, eaque soluta dolorum! Praesentium, reprehenderit! Incidunt
+                    accusantium, exercitationem expedita sapiente, consequuntur esse dicta vero, aliquam aut ipsa
+                    obcaecati
+                    ratione repellat modi itaque velit officia veniam. Mollitia iusto minima, nisi veniam unde fuga
+                    autem
+                    fugiat quisquam beatae harum distinctio nulla doloremque accusantium earum quaerat eveniet quo quae,
+                    aperiam numquam voluptatibus praesentium eos laboriosam enim temporibus. Sit sed labore, cupiditate
+                    dolor sequi, distinctio quo fugit, aperiam a fugiat expedita eligendi vel quibusdam nulla sunt
+                    maiores?
+                    Perferendis voluptas rerum molestias sequi, soluta enim consectetur commodi saepe voluptatem aliquam
+                    et
+                    unde quaerat esse! Possimus aut mollitia rem magni maxime dignissimos quia adipisci amet nobis!
+                    Error
+                    cumque minima ut assumenda nostrum perferendis voluptatum sunt tempore porro suscipit saepe
+                    explicabo
+                    obcaecati, voluptatibus illum quod corrupti a sequi reiciendis. Autem, aliquid. Nobis ad
+                    repellendus,
+                    voluptates ea magnam nam quasi dignissimos deleniti harum quae natus quos incidunt sunt? Nesciunt
+                    neque
+                    optio doloribus unde necessitatibus libero alias. Dolore optio, modi tempora maiores libero,
+                    repudiandae, recusandae molestiae doloribus ducimus ab dicta! Recusandae voluptate, possimus libero
+                    rerum, impedit eos minus excepturi voluptas dicta id repudiandae voluptatibus. Nesciunt dignissimos,
+                    quaerat corporis iure facere inventore rerum dicta ex. Minima ipsa beatae eveniet reiciendis
+                    necessitatibus accusamus autem quam. Molestiae at laborum assumenda nam quae voluptate pariatur
+                    dolor?
+                    Natus consectetur pariatur eos nesciunt non. At nobis quidem neque enim eius sapiente quasi
+                    repellendus
+                    cum debitis, est obcaecati aliquam. Voluptas quidem tenetur atque iusto assumenda reiciendis at
+                    explicabo nulla debitis, qui officia aut ipsam eius in sunt fugit neque molestiae vitae hic optio.
+                    Est
+                    perspiciatis dolorum impedit sed dolores eos adipisci, iure ad recusandae. Doloremque sint iste
+                    quas!
+                </div>
+        </div>
+
+        </div>
+
+</html>
+
+
+</body>
+</div>
+</main>
+<div class="fixed-plugin">
+    <a class="fixed-plugin-button text-dark position-fixed px-3 py-2">
+        <i class="material-icons py-2">settings</i>
+    </a>
+    <div class="card shadow-lg">
+        <div class="card-header pb-0 pt-3">
+            <div class="float-start">
+                <h5 class="mt-3 mb-0">Material UI Configurator</h5>
+                <p>See our dashboard options.</p>
+            </div>
+            <div class="float-end mt-4">
+                <button class="btn btn-link text-dark p-0 fixed-plugin-close-button">
+                    <i class="material-icons">clear</i>
+                </button>
+            </div>
+            <!-- End Toggle Button -->
+        </div>
+        <hr class="horizontal dark my-1">
+        <div class="card-body pt-sm-3 pt-0">
+            <!-- Sidebar Backgrounds -->
+            <div>
+                <h6 class="mb-0">Sidebar Colors</h6>
+            </div>
+            <a href="javascript:void(0)" class="switch-trigger background-color">
+                <div class="badge-colors my-2 text-start">
+                    <span class="badge filter bg-gradient-primary active" data-color="primary"
+                        onclick="sidebarColor(this)"></span>
+                    <span class="badge filter bg-gradient-dark" data-color="dark" onclick="sidebarColor(this)"></span>
+                    <span class="badge filter bg-gradient-info" data-color="info" onclick="sidebarColor(this)"></span>
+                    <span class="badge filter bg-gradient-success" data-color="success"
+                        onclick="sidebarColor(this)"></span>
+                    <span class="badge filter bg-gradient-warning" data-color="warning"
+                        onclick="sidebarColor(this)"></span>
+                    <span class="badge filter bg-gradient-danger" data-color="danger"
+                        onclick="sidebarColor(this)"></span>
+                </div>
+            </a>
+            <!-- Sidenav Type -->
+            <div class="mt-3">
+                <h6 class="mb-0">Sidenav Type</h6>
+                <p class="text-sm">Choose between 2 different sidenav types.</p>
+            </div>
+            <div class="d-flex">
+                <button class="btn bg-gradient-dark px-3 mb-2 active" data-class="bg-gradient-dark"
+                    onclick="sidebarType(this)">Dark</button>
+                <button class="btn bg-gradient-dark px-3 mb-2 ms-2" data-class="bg-transparent"
+                    onclick="sidebarType(this)">Transparent</button>
+                <button class="btn bg-gradient-dark px-3 mb-2 ms-2" data-class="bg-white"
+                    onclick="sidebarType(this)">White</button>
+            </div>
+            <p class="text-sm d-xl-none d-block mt-2">You can change the sidenav type just on
+                desktop view.</p>
+            <!-- Navbar Fixed -->
+            <div class="mt-3 d-flex">
+                <h6 class="mb-0">Navbar Fixed</h6>
+                <div class="form-check form-switch ps-0 ms-auto my-auto">
+                    <input class="form-check-input mt-1 ms-auto" type="checkbox" id="navbarFixed"
+                        onclick="navbarFixed(this)">
+                </div>
+            </div>
+            <hr class="horizontal dark my-3">
+            <div class="mt-2 d-flex">
+                <h6 class="mb-0">Light / Dark</h6>
+                <div class="form-check form-switch ps-0 ms-auto my-auto">
+                    <input class="form-check-input mt-1 ms-auto" type="checkbox" id="dark-version"
+                        onclick="darkMode(this)">
+                </div>
+            </div>
+            <hr class="horizontal dark my-sm-4">
+            <a class="btn bg-gradient-info w-100"
+                href="https://www.creative-tim.com/product/material-dashboard-pro">Free
+                Download</a>
+            <a class="btn btn-outline-dark w-100"
+                href="https://www.creative-tim.com/learning-lab/bootstrap/overview/material-dashboard">View
+                documentation</a>
+            <div class="w-100 text-center">
+                <a class="github-button" href="https://github.com/creativetimofficial/material-dashboard"
+                    data-icon="octicon-star" data-size="large" data-show-count="true"
+                    aria-label="Star creativetimofficial/material-dashboard on GitHub">Star</a>
+                <h6 class="mt-3">Thank you for sharing!</h6>
+                <a href="https://twitter.com/intent/tweet?text=Check%20Material%20UI%20Dashboard%20made%20by%20%40CreativeTim%20%23webdesign%20%23dashboard%20%23bootstrap5&amp;url=https%3A%2F%2Fwww.creative-tim.com%2Fproduct%2Fsoft-ui-dashboard"
+                    class="btn btn-dark mb-0 me-2" target="_blank">
+                    <i class="fab fa-twitter me-1" aria-hidden="true"></i> Tweet
+                </a>
+                <a href="https://www.facebook.com/sharer/sharer.php?u=https://www.creative-tim.com/product/material-dashboard"
+                    class="btn btn-dark mb-0 me-2" target="_blank">
+                    <i class="fab fa-facebook-square me-1" aria-hidden="true"></i> Share
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+<!--   Core JS Files   -->
+<script src="../static/js/core/popper.min.js"></script>
+<script src="../static/js/core/bootstrap.min.js"></script>
+<script src="../static/js/plugins/perfect-scrollbar.min.js"></script>
+<script src="../static/js/plugins/smooth-scrollbar.min.js"></script>
+<script src="../static/js/plugins/chartjs.min.js"></script>
+<script>
+    var ctx = document.getElementById("chart-bars").getContext("2d");
+
+    new Chart(ctx, {
+        type: "bar",
+        data: {
+            labels: ["M", "T", "W", "T", "F", "S", "S"],
+            datasets: [{
+                label: "Sales",
+                tension: 0.4,
+                borderWidth: 0,
+                borderRadius: 4,
+                borderSkipped: false,
+                backgroundColor: "rgba(255, 255, 255, .8)",
+                data: [50, 20, 10, 22, 50, 10, 40],
+                maxBarThickness: 6
+            },],
+        },
+        options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            plugins: {
+                legend: {
+                    display: false,
+                }
+            },
+            interaction: {
+                intersect: false,
+                mode: 'index',
+            },
+            scales: {
+                y: {
+                    grid: {
+                        drawBorder: false,
+                        display: true,
+                        drawOnChartArea: true,
+                        drawTicks: false,
+                        borderDash: [5, 5],
+                        color: 'rgba(255, 255, 255, .2)'
+                    },
+                    ticks: {
+                        suggestedMin: 0,
+                        suggestedMax: 500,
+                        beginAtZero: true,
+                        padding: 10,
+                        font: {
+                            size: 14,
+                            weight: 300,
+                            family: "Roboto",
+                            style: 'normal',
+                            lineHeight: 2
+                        },
+                        color: "#fff"
+                    },
+                },
+                x: {
+                    grid: {
+                        drawBorder: false,
+                        display: true,
+                        drawOnChartArea: true,
+                        drawTicks: false,
+                        borderDash: [5, 5],
+                        color: 'rgba(255, 255, 255, .2)'
+                    },
+                    ticks: {
+                        display: true,
+                        color: '#f8f9fa',
+                        padding: 10,
+                        font: {
+                            size: 14,
+                            weight: 300,
+                            family: "Roboto",
+                            style: 'normal',
+                            lineHeight: 2
+                        },
+                    }
+                },
+            },
+        },
+    });
+
+
+    var ctx2 = document.getElementById("chart-line").getContext("2d");
+
+    new Chart(ctx2, {
+        type: "line",
+        data: {
+            labels: ["Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"],
+            datasets: [{
+                label: "Mobile apps",
+                tension: 0,
+                borderWidth: 0,
+                pointRadius: 5,
+                pointBackgroundColor: "rgba(255, 255, 255, .8)",
+                pointBorderColor: "transparent",
+                borderColor: "rgba(255, 255, 255, .8)",
+                borderColor: "rgba(255, 255, 255, .8)",
+                borderWidth: 4,
+                backgroundColor: "transparent",
+                fill: true,
+                data: [50, 40, 300, 320, 500, 350, 200, 230, 500],
+                maxBarThickness: 6
+
+            }],
+        },
+        options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            plugins: {
+                legend: {
+                    display: false,
+                }
+            },
+            interaction: {
+                intersect: false,
+                mode: 'index',
+            },
+            scales: {
+                y: {
+                    grid: {
+                        drawBorder: false,
+                        display: true,
+                        drawOnChartArea: true,
+                        drawTicks: false,
+                        borderDash: [5, 5],
+                        color: 'rgba(255, 255, 255, .2)'
+                    },
+                    ticks: {
+                        display: true,
+                        color: '#f8f9fa',
+                        padding: 10,
+                        font: {
+                            size: 14,
+                            weight: 300,
+                            family: "Roboto",
+                            style: 'normal',
+                            lineHeight: 2
+                        },
+                    }
+                },
+                x: {
+                    grid: {
+                        drawBorder: false,
+                        display: false,
+                        drawOnChartArea: false,
+                        drawTicks: false,
+                        borderDash: [5, 5]
+                    },
+                    ticks: {
+                        display: true,
+                        color: '#f8f9fa',
+                        padding: 10,
+                        font: {
+                            size: 14,
+                            weight: 300,
+                            family: "Roboto",
+                            style: 'normal',
+                            lineHeight: 2
+                        },
+                    }
+                },
+            },
+        },
+    });
+
+    var ctx3 = document.getElementById("chart-line-tasks").getContext("2d");
+
+    new Chart(ctx3, {
+        type: "line",
+        data: {
+            labels: ["Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"],
+            datasets: [{
+                label: "Mobile apps",
+                tension: 0,
+                borderWidth: 0,
+                pointRadius: 5,
+                pointBackgroundColor: "rgba(255, 255, 255, .8)",
+                pointBorderColor: "transparent",
+                borderColor: "rgba(255, 255, 255, .8)",
+                borderWidth: 4,
+                backgroundColor: "transparent",
+                fill: true,
+                data: [50, 40, 300, 220, 500, 250, 400, 230, 500],
+                maxBarThickness: 6
+
+            }],
+        },
+        options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            plugins: {
+                legend: {
+                    display: false,
+                }
+            },
+            interaction: {
+                intersect: false,
+                mode: 'index',
+            },
+            scales: {
+                y: {
+                    grid: {
+                        drawBorder: false,
+                        display: true,
+                        drawOnChartArea: true,
+                        drawTicks: false,
+                        borderDash: [5, 5],
+                        color: 'rgba(255, 255, 255, .2)'
+                    },
+                    ticks: {
+                        display: true,
+                        padding: 10,
+                        color: '#f8f9fa',
+                        font: {
+                            size: 14,
+                            weight: 300,
+                            family: "Roboto",
+                            style: 'normal',
+                            lineHeight: 2
+                        },
+                    }
+                },
+                x: {
+                    grid: {
+                        drawBorder: false,
+                        display: false,
+                        drawOnChartArea: false,
+                        drawTicks: false,
+                        borderDash: [5, 5]
+                    },
+                    ticks: {
+                        display: true,
+                        color: '#f8f9fa',
+                        padding: 10,
+                        font: {
+                            size: 14,
+                            weight: 300,
+                            family: "Roboto",
+                            style: 'normal',
+                            lineHeight: 2
+                        },
+                    }
+                },
+            },
+        },
+    });
+</script>
+<script>
+    var win = navigator.platform.indexOf('Win') > -1;
+    if (win && document.querySelector('#sidenav-scrollbar')) {
+        var options = {
+            damping: '0.5'
+        }
+        Scrollbar.init(document.querySelector('#sidenav-scrollbar'), options);
+    }
+</script>
+<!-- Github buttons -->
+<script async defer src="https://buttons.github.io/buttons.js"></script>
+<!-- Control Center for Material Dashboard: parallax effects, scripts for the example pages etc -->
+<script src="/static/js/material-dashboard.min.js?v=3.1.0"></script>
+</body>
+
+</html>
